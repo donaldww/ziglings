@@ -36,14 +36,16 @@ const Character = struct {
     class: Class,
     gold: u32,
     experience: u32,
+    health: u8,
 };
 
 pub fn main() void {
     // Please initialize Glorp with 100 health.
     var glorp_the_wise = Character{
-        .class = Class.wizard,
+        .class = .wizard, // Class.wizard is inferred.
         .gold = 20,
         .experience = 10,
+        .health = 100,
     };
 
     // Glorp gains some gold.
