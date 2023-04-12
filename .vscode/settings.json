@@ -1,3 +1,22 @@
 {
-  "cSpell.words": ["anyopaque", "errdefer"]
+  "cSpell.words": ["anyopaque", "Dhealed", "Éowyn", "errdefer", "Gollum"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/_build": true,
+    "*.iml": true,
+    "**/.elixir_ls": true,
+    "**/.exercism": true,
+    "**/.idea": true,
+    ".credo.exs": true,
+    "**/.vscode": true,
+    "**/deps": true,
+    "**/.github": true,
+    "**/zig-cache": true
+  },
+  "explorerExclude.backup": {}
 }
