@@ -37,18 +37,18 @@ pub fn main() void {
 //     detectProblems()  Returns the number or an error.
 //
 fn makeJustRight(n: u32) MyNumberError!u32 {
-    return fixTooBig(n) catch |err| {
-        return err;
+    return fixTooBig(n) catch |result| {
+        return result;
     };
 }
 
 fn fixTooBig(n: u32) MyNumberError!u32 {
-    return fixTooSmall(n) catch |err| {
-        if (err == MyNumberError.TooBig) {
+    return fixTooSmall(n) catch |result| {
+        if (result == MyNumberError.TooBig) {
             return 20;
         }
 
-        return err;
+        return result;
     };
 }
 
@@ -59,7 +59,12 @@ fn fixTooSmall(n: u32) MyNumberError!u32 {
     // If we get a TooSmall error, we should return 10.
     // If we get any other error, we should return that error.
     // Otherwise, we return the u32 number.
-    return detectProblems(n) ???;
+    return detectProblems(n) catch |result| {
+        if (result == MyNumberError.TooSmall) {
+            return 10;
+        }
+        return result;
+    };
 }
 
 fn detectProblems(n: u32) MyNumberError!u32 {
