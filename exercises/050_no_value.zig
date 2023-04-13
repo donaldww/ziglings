@@ -78,7 +78,7 @@ pub fn main() !void {
 }
 
 fn printSecondLine() Err!void {
-    var second_line2: ?*const [18]u8 = undefined;
+    var second_line2: ?*const [18]u8 = null;
     second_line2 = "even death may die";
 
     std.debug.print("And with strange aeons {s}.\n", .{second_line2.?});
