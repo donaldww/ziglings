@@ -46,16 +46,22 @@ pub fn main() void {
 
     // I want to print every number between 1 and 20 that is NOT
     // divisible by 3 or 5.
-    for (???) |n| {
+    for (1..20) |n| {
 
         // The '%' symbol is the "modulo" operator and it
         // returns the remainder after division.
-        if (n % 3 == 0) continue;
-        if (n % 5 == 0) continue;
+        if (threeOrFive(n)) continue;
+        // if (@mod(n, 3) == 0) continue;
+        // if (n % 3 == 0) continue;
+        // if (n % 5 == 0) continue;
         std.debug.print("{} ", .{n});
     }
 
     std.debug.print("\n", .{});
+}
+
+fn threeOrFive(n: usize) bool {
+    return if (@mod(n, 3) == 0 or @mod(n, 5) == 0) true else false;
 }
 
 // Is actually a little easier. The interesting thing here is that the other
